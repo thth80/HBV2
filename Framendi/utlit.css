@@ -1,0 +1,335 @@
+@charset "UTF-8";
+/** Hlutir sem stjórna hæð og breidd **/
+body, html {
+  height: 100%;
+  width: 100%;
+  position: fixed; }
+
+.container {
+  width: 100% !important; }
+
+.rammi {
+  height: 100%; }
+
+div.container-fluid {
+  height: 100% !important; }
+
+div.row {
+  height: 100% !important; }
+
+/** Tilkynningar gluggi **/
+.announce {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(63, 63, 63, 0.5); }
+
+.announcement {
+  height: 50%;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: solid 1px white; }
+  .announcement p {
+    color: white;
+    font-weight: bold;
+    text-align: center; }
+  .announcement button {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin: 10px; }
+
+.announcement-trophy {
+  height: 70%;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: solid 1px white; }
+  .announcement-trophy button {
+    margin-right: 1%; }
+
+.announcement-players {
+  height: 60%;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: solid 1px white; }
+
+.announcement-pres {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
+  .announcement-pres img {
+    width: 100%;
+    margin-top: 8%; }
+  .announcement-pres p, .announcement-pres h4 {
+    color: white;
+    margin: 8% 0% 8% 0%; }
+
+.announcement-vs {
+  width: 40%;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: relative; }
+  .announcement-vs img {
+    width: 100%;
+    margin-top: 25%; }
+  .announcement-vs p, .announcement-vs h4 {
+    color: white;
+    margin: 8% 0% 8% 0%; }
+
+/** Ýmsir takkar **/
+div.leave_game button {
+  display: inline-block !important;
+  width: 49%; }
+
+/** Hlutir inni í "well" **/
+.well-content {
+  width: 80%;
+  clear: left;
+  float: left; }
+  .well-content :first-child {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+
+div.well {
+  margin-bottom: 5px;
+  /* BUTTONS */ }
+  div.well img {
+    width: 13%;
+    height: 13%;
+    float: right; }
+  div.well .btn_join {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 15px 20px 15px 20px; }
+  div.well .btn_cancel {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 15px 11px 15px 11px; }
+  div.well .btn_spec {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 15px 5px 15px 5px; }
+
+div.well-content {
+  /** PROGRESS BAR **/ }
+  div.well-content .progress {
+    width: 30%;
+    margin-left: 50%;
+    border: 1px solid black;
+    background: -webkit-linear-gradient(top, #9e9e9e 0%, whitesmoke 100%);
+    background: linear-gradient(to bottom, #9e9e9e 0%, whitesmoke 100%); }
+    div.well-content .progress .progress-bar {
+      line-height: 1em; }
+
+.radio-game {
+  margin: 4%;
+  margin-left: 30%; }
+
+/** Chat **/
+div.chat {
+  width: 100%;
+  margin-top: 40px;
+  border: 2px solid white;
+  border-radius: 4px; }
+  div.chat form {
+    display: inline-flex; }
+    div.chat form :first-child {
+      width: 80% !important;
+      margin: 0px !important;
+      border-bottom-width: 4px; }
+    div.chat form button#chat_submit {
+      margin: 0px !important;
+      width: 20% !important;
+      border-radius: 0px; }
+
+#success_banner p, #info_banner p{
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+#success_banner, #info_banner{
+  position: fixed;
+  top: 2%;
+  width: 500px; 
+  left: 433px;
+  display: block;
+}
+
+#lobby_chat_frame {
+  height: 30em;
+  width: 100%;
+  background-color: #FFFFFF;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 30em;
+  padding: 1px; }
+
+  #lobby_chat_frame p{
+    margin-bottom: 4px;
+  }
+  #game_chat_frame p{
+    margin-bottom: 4px;
+  }
+
+  #game_chat_frame p:nth-child(odd) {
+    background-color: rgba(0,255,0,0.07);
+  }
+  #lobby_chat_frame p:nth-child(odd) {
+    background-color: rgba(0,255,0,0.07);
+  }
+
+  #game_chat_frame p:nth-child(even) {
+    background-color: rgba(229,250,0, 0.09);
+  }
+  #lobby_chat_frame p:nth-child(even) {
+    background-color: rgba(229,250,0, 0.09);
+  }
+
+  #game_chat_frame {
+  height: 30em;
+  width: 100%;
+  background-color: #FFFFFF;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 30em;
+  padding: 1px; }
+
+/** CANVAS **/
+.canvas {
+  height: 100%;
+  width: 100%; }
+
+.canvas-rammi1 {
+  background-color: #000000; }
+
+.canvas-rammi2 {
+  background-color: #016600; }
+
+#mycanvas {
+  width: 100%;
+  height: 100%; }
+
+.game-buttons {
+  z-index: 100; }
+  .game-buttons button {
+    font-weight: bold;
+    border: solid black 1px; }
+
+#throw_dice {
+  position: absolute;
+  top: 57%;
+  left: 20%;
+  width: 21%;
+  height: 14%; }
+
+#double_offer {
+  position: absolute;
+  top: 57%;
+  left: 62%;
+  width: 20%;
+  height: 14%; }
+
+#accept_offer {
+  position: absolute;
+  top: 43%;
+  left: 41%;
+  height: 14%;
+  width: 8.5%; }
+
+#reject_offer {
+  position: absolute;
+  top: 43%;
+  left: 50.2%;
+  height: 14%;
+  width: 8.5%; }
+
+#end_turn {
+  position: absolute;
+  box-sizing: border-box;
+  top: 43%;
+  left: 44%;
+  height: 14%;
+  width: 12%; }
+
+/** SIDE BAR **/
+#side-bar {
+  background-color: #101010;
+  height: 100%; }
+  #side-bar h1, #side-bar h2, #side-bar h3, #side-bar h4 {
+    color: white;
+    padding: 10px 0px 10px 0px; }
+  #side-bar ul {
+    padding: 50px 0px 0px 0px; }
+    #side-bar ul button {
+      margin: 15px auto 30px auto;
+      display: block; }
+  #side-bar form {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    clear: left; }
+    #side-bar form input, #side-bar form button {
+      width: 75%;
+      display: inline-block;
+      /*clear: left;*/
+      float: left; }
+    #side-bar form input {
+      margin-top: 3px; }
+    #side-bar form button {
+      margin: 15px 0px 30px 0px; }
+
+#mylogin {
+  background-image: url("./images/back.png");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: left top;
+  background-position: center; }
+
+#explainer {
+  background-color: white;
+  margin: 20px auto 100px auto;
+  height: 100px;
+  width: 100%;
+  overflow-x: hidden;
+  border: 2px solid white;
+  padding: 1px; }
+
+/*** HELPERS ***/
+/** Klasi sem miðjar hluti í foreldri **/
+.centered {
+  margin-right: -50%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%); }
+
+.inline {
+  display: inline; }
+
+.scroll {
+  overflow: auto;
+  max-height: 84vh; }
+
+/** óþarfi ?? **/
+/* #chat_game {
+  background-color: white;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 350px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 8px;
+  border: 5px outset #5bc0de;
+  padding: 1px; } */
+/* #present_game_end{
+  position: fixed;
+  top: 250px;
+  right: 444px;
+  background-color: white;
+} */

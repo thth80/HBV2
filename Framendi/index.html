@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Backgammon</title>
+	<link rel="stylesheet" type="text/css" href="./utlit.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div id="rammi1" class="rammi">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="canvas col-md-9 canvas-rammi1">
+					<canvas id="mylogin"></canvas>
+				</div>
+				<nav class="col-md-3 bs-docs-sidebar" id="side-bar">
+					<ul>
+						<form class="form-signin" method="POST" id="signup">
+							<h3>Sign up, it's free!</h3>
+							<label for="username" class="sr-only">Username</label>
+							<input type="text" name="username" class="form-control" placeholder="Username">
+							<label for="pw1" class="sr-only">Password</label>
+							<input type="password" name="pw1" class="form-control" placeholder="Password">
+							<label for="pw2" class="sr-only">Password Again</label>
+							<input type="password" name="pw2" class="form-control" placeholder="Password again">
+							<button class="btn btn-info btn-block" type="submit">Sign up for free</button>
+						</form>		
+						<form class="form-signin" method="POST" id="login">
+							<h4>Already have an account? Login!</h4>
+							<label for="username" class="sr-only">Username</label>
+							<input type="text" name="username" class="form-control" placeholder="Username">
+							<label for="pw" class="sr-only">Password</label>
+							<input type="password" name="pw" class="form-control" placeholder="Password">
+							<button class="btn btn-info btn-block" type="submit">Log in</button>
+						</form>
+					</ul>
+				</nav>				
+			</div>
+		</div>
+	</div>
+
+
+	<div id="rammi2" class="rammi">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="canvas col-md-9 canvas-rammi2" id="game_container">
+					<canvas id="mycanvas" width="1024" height="768"></canvas>
+					<div class="game-buttons">
+						<button class="btn btn-primary btn-lg" id="throw_dice">Throw dice</button>
+						<button class="btn btn-warning btn-lg" id="end_turn">End turn</button>
+						<button class="btn btn-danger btn-lg" id="double_offer">Double stakes</button>
+						<button class="btn btn-success" id="accept_offer">I accept</button>
+						<button class="btn btn-danger" id="reject_offer">I reject</button>
+					</div>
+					<div class="announce hidden">
+						<div class="announcement centered">
+							<div class="centered"> 
+								<p>UltraBot won the game,</p>
+								<p>Points: 1.000</p>
+								<p>Rank: no. 1</p>
+								<p>Better luck next time.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<nav class="col-md-3 bs-docs-sidebar" id="side-bar">
+					<ul>
+						<button type="button" class="btn btn-info btn-lg" id="leave_match">
+							<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Leave game
+						</button>
+						<div class="leave_game" id="leave_decide">
+							<button type="button" class="btn btn-success" id="confirm_leave">
+								<span class="glyphicon glyphicon-ok"></span> Confirm
+							</button>
+							<button type="button" class="btn btn-warning" id="cancel_leave">
+								<span class="glyphicon glyphicon-remove"></span> Cancel
+							</button>
+						</div>
+						
+						<div class="chat">
+							<div id="game_chat_frame"></div>
+							<form id="game_chat_entry">
+								<input type="text" placeholder="..Write a message">
+								<button type="button" class="btn btn-info" id="chat_submit">
+									<span class="glyphicon glyphicon-send"></span>
+								</button>
+							</form>
+						</div>
+					</ul>
+				</nav>				
+			</div>
+		</div>
+	</div>
+
+
+	<div id="rammi3" class="rammi">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="canvas col-md-9" id="lobby_container">
+					<div class="tabwrapper">
+		    			<div class="container">
+		  					<h2>The Game Lobby</h2>
+		  					<ul class="nav nav-tabs">
+		   						<li class="active"><a data-toggle="tab" href="#online_game_settings">Setup New Game</a></li>
+		   						<li><a data-toggle="tab" href="#offline_game_settings">Setup Offline Game</a></li>
+		    					<li><a data-toggle="tab" href="#ongoing_games">See Ongoing Games</a></li>
+		    					<li><a data-toggle="tab" href="#waiting_list">See Waiting List</a></li>
+		  					</ul>
+
+		  					<div class="tab-content">
+		    					<div id="online_game_settings" class="tab-pane fade in active">
+		    						<div class="well well-lg clearfix">
+		    							<div class="radio-game" id="clock_select_online">
+			    							
+			    								<label class="radio-inline">
+											  		<input type="radio" checked="checked" name="on_clock" value="No clock"> No clock
+												</label>
+												<label class="radio-inline">
+											  		<input type="radio" value="Clock" name="on_clock"> Speed match
+												</label>
+											
+										</div>
+										<div class="radio-game" id="point_select_online">
+			    							
+			    								<label class="radio-inline">
+											  		<input type="radio" checked="checked" value="1" name="on_poi"> 1 point
+												</label>
+												<label class="radio-inline">
+											  		<input type="radio" value="3" name="on_poi"> 3 points
+												</label>
+												<label class="radio-inline">
+											  		<input type="radio" value="5" name="on_poi"> 5 points
+												</label>
+												<label class="radio-inline">
+											  		<input type="radio" value="7" name="on_poi"> 7 points
+												</label>
+										
+										</div>
+		      							<button class="btn btn-primary btn-lg pull-right" id="add_wait_entry">Create game</button>
+		      						</div>
+		    					</div>
+		    					<div id="offline_game_settings" class="tab-pane fade">
+		    						<div class="well well-lg clearfix">
+		    							<div class="radio-game" id="clock_select_offline">
+			    							<label class="radio-inline">
+											  <input type="radio" checked="checked" name="off_clock" value="No clock"> No clock
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" id="speed_match" name="off_clock"  value="Speedmatch"> Speed match
+											</label>
+										</div>
+										<div class="radio-game" id="point_select_offline">
+			    							<label class="radio-inline">
+											  <input type="radio" checked="checked" name="off_poi"  value="1"> 1 point
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="off_poi" value="3"> 3 points
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="off_poi" value="5"> 5 points
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="off_poi" value="7"> 7 points
+											</label>
+										</div>
+										<div class="radio-game" id="offline_diff">
+			    							<label class="radio-inline">
+											  <input type="radio" checked="checked" name="difficulty"  value="Easy Bot"> Easy
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="difficulty" value="Medium Bot"> Medium
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="difficulty" value="Hard Bot"> Hard
+											</label>
+										</div>
+		      							<button class="btn btn-primary btn-lg pull-right" id="join_offline">Begin</button>
+		      						</div>
+		    					</div>
+		    					<div id="ongoing_games" class="tab-pane fade">
+		      						
+
+		    					</div>
+		    					<div id="waiting_list" class="tab-pane fade">
+		      						
+
+		    					</div>
+		     				</div>
+						</div>
+					</div>
+					
+				</div>		
+
+				<nav class="col-md-3 bs-docs-sidebar" id="side-bar">
+					<ul>
+						<button type="button" class="btn btn-info btn-lg" id="trophy_room">
+							<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Visit Trophy Room
+						</button>
+
+						<div class="chat">
+							<div id="lobby_chat_frame"></div>
+							<form id="lobby_chat_entry">
+								<input type="text" placeholder="..Write a message">
+								<button type="submit" class="btn btn-info" id="chat_submit">
+									<span class="glyphicon glyphicon-send"></span>
+								</button>
+							</form>
+						</div>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="rammi4" class="rammi">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="canvas col-md-9">
+					<div class="tabwrapper">
+		    			<div class="container">
+		  					<h2>The Trophy Room</h2>
+		  					<ul class="nav nav-tabs">
+		   						<li class="active"><a data-toggle="tab" href="#trophies">Your Trophy Collection</a></li>
+		   						<li><a data-toggle="tab" href="#stats">View Your Stats</a></li>
+		  					</ul>
+
+		  					<div class="tab-content">
+		    					<div id="trophies" class="tab-pane fade in active">
+		    						<div class="scroll">
+			      						
+		      						</div>
+			      				</div>
+		    					<div id="stats" class="tab-pane fade">
+		    						<div class="scroll">
+			      					
+				      					<h4 class="media-heading">Win ratio against other players</h4>
+										
+									</div>
+	  							</div>
+	    					</div>
+	     				</div>
+					</div>
+				</div>
+				<nav class="col-md-3 bs-docs-sidebar" id="side-bar">
+					<ul>
+						<button type="button" class="btn btn-info btn-lg" id="game_lobby">
+							<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Go To Lobby
+						</button>
+						
+					</ul>
+				</nav>				
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-success" id="success_banner">
+  		<p></p>
+	</div>
+
+	<div class="alert alert-info hidden" id="info_banner">
+  		<p>Info! </p>
+	</div>
+
+
+	<script src="jquery-1.11.3.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="Sprite.js"></script>
+    <script src="imagesPreload.js"></script>
+    <script src="Pawn.js"></script>
+    <script src="Pawnmover.js"></script>
+    <script src="DicePair.js"></script>
+    <script src="Cube.js"></script>
+    <script src="DomManipulator.js"></script>
+    <script src="Square.js"></script>
+    <script src="main.js"></script>
+    <script src="BoardManager.js"></script>
+    <script src="AnimationCoordinator.js"></script>
+    <script src="RequestController.js"></script>
+    <script src="ResponseController.js"></script>
+    <script src="BACKGAMMON.js"></script>
+</body>
+</html>
